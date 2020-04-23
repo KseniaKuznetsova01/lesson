@@ -1,4 +1,4 @@
-from Number import *
+from Rim import *
 
-number_1 = Number('XII')
+number_1 = Rim('XII')
 print(number_1)
