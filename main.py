@@ -1,11 +1,11 @@
-from RomeNumerals import Rim
+from RomeNumerals import Rim                                            # Importing our class RomeNumerals.
 
 print("I am a program that can work with Roman numbers.\n"
       "If you want end this program, write: \" exit \" " "\n"
       "Please enter your Roman number!")
 key = True
 
-while key:
+while key:                                                              # Entering a number in the loop.
     number = input("\t")
     if number == "exit":
         key = False
