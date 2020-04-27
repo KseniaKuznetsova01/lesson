@@ -6,18 +6,26 @@ print("I am a program that can work with Roman numbers.\n"
 key = True
 
 while key:  # Entering a number in the loop.
-    number_1 = input("\t")
-    number_2 = input("\t")
-    if number_1 == "exit" or number_2 == "exit":
-        key = False
-        break
-    num_rim_1 = Rim(number_1)
-    num_rim_2 = Rim(number_2)
-
+      
+    try:    
+        number_1 = input("\t")
+        number_2 = input("\t")
+        if number_1 == "exit" or number_2 == "exit":
+            key = False
+            break
+        num_rim_1 = Rim(number_1)
+        num_rim_2 = Rim(number_2)
+            
+    except ValueError:
+        print("You entered an invalid numbers. Please, try again")
+        continue
+      
     try:
         if num_rim_1.__str__() == 'None' or num_rim_2.__str__() == 'None':
+                  
             print("You entered an invalid number. Please, try again")
             continue
+            
         print("\tYour numbers: ", number_1, number_2)
         print("\tConvert numbers: ", num_rim_1.__str__(), num_rim_2.__str__())
         print("\tSum: ", num_rim_1 + num_rim_2)
@@ -31,5 +39,6 @@ while key:  # Entering a number in the loop.
         print("\tFirst less them Second? ", num_rim_1 < num_rim_2)
 
     except KeyError:
+      
         print("You entered an invalid numbers. Please, try again")
         continue
