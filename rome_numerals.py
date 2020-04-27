@@ -1,16 +1,46 @@
+class Rim:  # Creating a class.
 
-def translate(number):                                                     # Function for converting a number from Roman to natural.
-    d = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
-    s = 0
-    for i in range(len(number)):
-        if i > 0 and d[number[i]] > d[number[i - 1]]:
-            s += d[number[i]] - 2 * d[number[i - 1]]
+    def __init__(self, number):  # Creating an instance of the class.
+        if self.check_input(number):
+            self.number = number.upper()
         else:
-            s += d[number[i]]
-    return s
+            raise ValueError
 
+    def __str__(self):  # String representation method.
+        if self.number == 'None':
+            return 'None'
+        else:
+            return self.translate(self.number)
 
-class Rim:                                                                  # Creating a class.
+    def __repr__(self):  # Getting an instance of the class.
+        return self.__str__()
+
+    def __add__(self, other):
+        return self.translate(self.number) + self.translate(other.number)
+
+    def __sub__(self, other):
+        return self.translate(self.number) - self.translate(other.number)
+
+    def __mul__(self, other):
+        return self.translate(self.number) * self.translate(other.number)
+
+    def __truediv__(self, other):
+        return self.translate(self.number) / self.translate(other.number)
+
+    def __floordiv__(self, other):
+        return self.translate(self.number) // self.translate(other.number)
+
+    def __mod__(self, other):
+        return self.translate(self.number) % self.translate(other.number)
+
+    def __gt__(self, other):
+        return self.translate(self.number) > self.translate(other.number)
+
+    def __eq__(self, other):
+        return self.translate(self.number) == self.translate(other.number)
+
+    def __lt__(self, other):
+        return self.translate(self.number) < self.translate(other.number)
 
     @staticmethod
     def check_input(number):  # Function for checking the entered number.
@@ -60,26 +90,3 @@ class Rim:                                                                  # Cr
             else:
                 s += d[number[i]]
         return s
-
-
-    def __init__(self, number):                                          # Creating an instance of the class.
-        if check_input(number):
-            self.number = number.upper()
-        else:
-            raise(ValueError)
-
-
-    def __str__(self):                                                      # String representation method.
-        if self.number == 'None':
-            return 'None'
-        else:
-            return translate(self.number)
-
-
-
-
-    def __repr__(self):                                                     # Getting an instance of the class.
-        return self.__str__()
-
-
-
