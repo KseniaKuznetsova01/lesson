@@ -107,10 +107,12 @@ class Ufo:
             tr.pendown()
             tr.write(self.name, True, align = 'center')
 
+    def not_show(self):
+        self.color = 'white'
+        self.color_pillars = 'white'
+        self.color_circle = 'white'
+        self.color_lamps = 'white'
 
-    def show_1(self):
-
-        show(self)
 
 
     def __str__(self):
